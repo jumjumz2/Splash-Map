@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#031120">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Splash Map">
+<title>Splash Map</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.Default.min.css">
+<link rel="stylesheet" href="style.css?v=4">
+</head>
+<body>
+<div id="app">
+  <div id="off" hidden>📴 Offline, saved spots and visited map areas still work</div>
+  <header class="top">
+    <h1>Splash<b>Map</b></h1>
+    <div><button id="inst" onclick="installApp()">⬇️</button><button id="gear" onclick="V.settings()">⚙️</button></div>
+  </header>
+  <div id="toast"></div>
+
+  <section class="tab on" id="t-map">
+    <div id="map"></div>
+    <div class="bar2"><input id="q" placeholder="Search spots" oninput="M.draw()"><button onclick="M.locate()">📍</button></div>
+    <div class="chips" id="chips"></div>
+    <div class="fabs">
+      <button onclick="cycleBase()">🛰️</button>
+      <button onclick="nearest()">🧭</button>
+      <button onclick="buddy()">⏱️</button>
+      <button class="sos" onclick="sos()">🆘</button>
+    </div>
+    <button class="addb" onclick="M.addMode()">+ Add spot</button>
+  </section>
+  <section class="tab scroll" id="t-feed"></section>
+  <section class="tab scroll" id="t-rank"></section>
+  <section class="tab scroll" id="t-me"></section>
+
+  <div class="sheet" id="sheet"></div>
+
+  <nav class="nav">
+    <button class="nb on" data-t="map" onclick="go('map')"><b>🗺️</b>Map</button>
+    <button class="nb" data-t="feed" onclick="go('feed')"><b>🔥</b>Feed</button>
+    <button class="rec" onclick="V.record()">🤙</button>
+    <button class="nb" data-t="rank" onclick="go('rank')"><b>🏆</b>Ranks</button>
+    <button class="nb" data-t="me" onclick="go('me')"><b>🐬</b>Me</button>
+  </nav>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.min.js"></script>
+<script src="data.js?v=4"></script>
+<script src="store.js?v=4"></script>
+<script src="map.js?v=4"></script>
+<script src="views.js?v=4"></script>
+<script src="main.js?v=4"></script>
+<script src="extras.js?v=4"></script>
+<script src="pwa.js?v=4"></script>
+</body>
+</html>
